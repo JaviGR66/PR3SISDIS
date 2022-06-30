@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@800&display=swap" rel="stylesheet">
+    <style>
+    body{
+      background-color: #F26570;
+    }
+    h1{
+        font-family: sans-serif;
+        text-align: center;
+        font-size: 70px;
+    }
+    label{
+      font-family: 'Changa', sans-serif;
+      text-align: center;
+    }
+    input{
+      font-family: 'Changa', sans-serif;
+      text-align: center;
+    }
+    </style>
+    <meta charset="utf-8">
+
+    	<h1 style="text-align: center;">Recuperacion de la cuenta</h1>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+
+    $(document).ready(function(){
+    	//alert(contador);
+      $("button").click(function(){
+    		var us=document.getElementById("Usuario").value;
+    		var fr=document.getElementById("FraseRecuperacion").value;
+
+    		if(contador!=4){
+    		$.get(
+    		    "http://egisaeg4i5yly3in37jjcxy4h40wzpqw.lambda-url.us-east-1.on.aws/",
+    		    {Usuario : us, FraseRecuperacion : fr},
+    		    function(data) {
+
+
+    				if(data.accesoConcedido=="true"){
+    					alert("Acceso conseguido");
+    					sessionStorage.setItem('Usuario', us);
+    					window.location.href="comunidad.html";
+    				}
+    				else
+    				{
+    					alert("Error en la contraseña o en usuario");
+    					contador++;
+    					alert(contador);
+    				}
+
+    		    }
+    		);
+    	}
+    	else{
+    		alert("Su cuenta ha sido restringida");
+    		FraseRecuperacion();
+    	}
+      	});
+    });
+  </script>
+
+    	<div style="text-align: center;">
+    		<label style="text-align: center;">Usuario:</label>
+    		<input type="text" id="Usuario" name="op1" style="text-align: center;" placeholder="Introduce Usuario"><br><br>
+    		<label style="text-align: center; ">FraseRecuperacion:</label>
+    		<input type="text" id="FraseRecuperacion" name="op2" style="text-align: center; "placeholder="Introduce tu Frase de seguridad"><br><br>
+    		<button style="text-align: center; ">Aceptar</button><br><br>
+    	</div>
+
+
+  </body>
+</html>

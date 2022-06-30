@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css2?family=Changa:wght@800&display=swap" rel="stylesheet">
+	<style>
+	body{
+		background-color: #F26570;
+	}
+	h1{
+		  font-family: sans-serif;
+			text-align: center;
+			font-size: 70px;
+	}
+	label{
+		font-family: 'Changa', sans-serif;
+		text-align: center;
+	}
+	input{
+		font-family: 'Changa', sans-serif;
+		text-align: center;
+	}
+	</style>
+	<h1 style="text-align: center;">Login a U-Tube</h1>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script>
+	var contador=0;
+$(document).ready(function(){
+	//alert(contador);
+  $("button").click(function(){
+		var us=document.getElementById("Usuario").value;
+		var cont=document.getElementById("Contrasenia").value;
+
+		if(contador!=4){
+		$.get(
+		    "http://egisaeg4i5yly3in37jjcxy4h40wzpqw.lambda-url.us-east-1.on.aws/",
+		    {Usuario : us, Contrasenia : cont, op:"login"},
+		    function(data) {
+
+
+				if(data.accesoConcedido=="true"){
+					alert("Acceso conseguido");
+					sessionStorage.setItem('Usuario', us);
+					window.location.href="comunidad.html";
+				}
+				else
+				{
+					alert("Error en la contraseña o en usuario");
+					contador++;
+					//alert(contador);
+					FraseRecuperacion();
+				}
+
+		    }
+		);
+	}
+	else{
+		alert("Su cuenta ha sido invalidada");
+		//Implementar el post mañana
+	}
+  	});
+});
+
+function FraseRecuperacion(){
+alert("¿Quieres acceder por tu Frase de Recuperacion?");
+var boton=document.createElement('button');
+boton.innerHTML='click me';
+boton.onclick=window.location.href="Recuperacion.html";
+}
+</script>
+<script>
+	function passWD()
+	{
+		var x=document.getElementById("Contrasenia");
+		if(x.type=="password"){
+			x.type="text";
+		}
+		else{
+			x.type="password";
+		}
+	}
+</script>
+
+</head>
+<body>
+
+	<div style="text-align: center;">
+		<label style="text-align: center;">Usuario:</label>
+		<input type="text" id="Usuario" name="op1" style="text-align: center;" placeholder="Introduce Usuario"><br><br>
+		<label style="text-align: center; ">Contrasenia:</label>
+		<input type="password" id="Contrasenia" name="op2" style="text-align: center; "placeholder="Introduce Contrasenia"><br><br>
+		<button style="text-align: center; ">Aceptar</button><br><br>
+		<input type="checkbox" onclick="passWD()" style="text-align: center; ">Show Password
+	</div>
+
+
+</body>
+</html>

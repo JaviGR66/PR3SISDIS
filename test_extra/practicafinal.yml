@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: practicafinal
+spec:
+  selector:
+    matchLabels:
+      slavetype: master
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        slavetype: master
+    spec:
+      containers:
+      - name: practicafinal
+        image: /practicafinal:5.5
+        imagePullPolicy: IfNotPresent
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: mysql-storage
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
+      nodeSelector:
+        slavetype: master

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Changa:wght@800&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <h1 style="font-size:64px;">Sube tu video</h1>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+function uploadvideotodatabase() {
+  let tag= $("#tag").val();
+  let vidname = document.getElementById("file").value.substring(document.getElementById("file").value.lastIndexOf('\\')+1);
+  vidname= vidname.split('.').shift();
+  console.log(vidname);
+  let extension= $("#file").val().split('.').pop();
+  let size;
+  extension= "."+extension;
+  document.getElementById("key").value =sessionStorage.getItem("Usuario")+"/" + document.getElementById("file").value.substring(document.getElementById("file").value.lastIndexOf('\\')+1);
+  let file = document.getElementById('file'); 
+// GET THE FILE INPUT.
+  if (file.files.length > 0) {
+// RUN A LOOP TO CHECK EACH SELECTED FILE.
+    for (let i = 0; i <= file.files.length - 1; i++) {
+      size = file.files.item(i).size;
+    }
+  }
+  $.get("http://5vt3d3bbvekhgiitjzycl6awyi0qtepc.lambda-url.us-east-1.on.aws/",
+    {
+      Extension: extension,
+      Size: size,
+      Vidname:vidname,
+      Usuario:sessionStorage.getItem("Usuario"),
+      Tag: tag,
+      op: "post"
+    }
+    ,function () {
+      window.location.href="./manager.html";
+    });
+}
+
+
+</script>
+<style>
+body{
+  background-color: #F26570;
+}
+h1{
+  text-align: center;
+  font-family: 'Changa', sans-serif;
+
+}
+form{
+  text-align: center;
+  font-family: 'Changa', sans-serif;
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+input{
+  font-family: 'Changa', sans-serif;
+}
+p{
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<form action="s3://arn:aws:s3:us-east-1:152821145412:accesspoint/open" onsubmit="uploadvideotodatabase()" method="post" enctype="multipart/form-data">
+  <input type="hidden"  id="X-Amz-Credential" name="X-Amz-Credential" value="" />
+
+  <input type="hidden"  id="X-Amz-Date" name="X-Amz-Date" value="" />
+
+  <input type="hidden"  id="Policy" name="Policy" value="" />
+
+  <input type="hidden"   id="X-Amz-Signature" name="X-Amz-Signature" value="" />
+
+	<input type="hidden" id="key" name="key" value="fichero.sln" /><br />
+    <input type="hidden" name="acl" value="public-read" />
+    <input type="hidden" name="success_action_redirect" value="s3://arn:aws:s3:us-east-1:152821145412:accesspoint/open" />
+    <input type="hidden"   name="X-Amz-Algorithm" value="AWS4-HMAC-SHA256" />
+  	<input type="hidden" id="X-Amz-Security-Token" name="X-Amz-Security-Token" value=""/>
+   <p>Select file to upload:
+    <input class ="btn btn-primary" type="file" name="file" id="file">
+    <input class ="btn btn-success" type="submit" value="Subir Fichero" name="submit" >
+     <input type="text" name="tag"  placeholder="tag del video" id="tag">
+    </p>
+
+<br>
+<p><span style='font-size:100px;'>&#129299;</span></p>
+</body>
+</html>

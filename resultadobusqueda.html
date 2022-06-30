@@ -1,0 +1,63 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <title>U-tube</title>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="js/busqueda.js"></script>
+</head>
+
+<body style="background-color: black">
+
+<div class="flex-container" style="background-color: black">
+  <div  class="jumbotron jumbotron-fluid" id="main_vid" style="background-image: url('img/azulutad.jpg');background-repeat: no-repeat;background-size: cover; background-position: initial">
+    <div class="container_main">
+      <h1 style="color: white" class="display-3" id="main_new_title">U-Tub</h1>
+    </div>
+  </div>
+  <nav>
+    <div class="dropdown">
+      <a class="btn mb-5 p-3 btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Panel
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="comunidad.html">Comunidad </a>
+        <a class="dropdown-item" href="manager.html">Perfil</a>
+      </div>
+    </div>
+  </nav>
+  <nav class="topnav">
+    <div class="search-container">
+      <form action="./resultadobusqueda.html">
+        <input type="text" placeholder="Titulo..." name="vidname">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+    <div class="search-container">
+      <form action="./resultadobusqueda.html">
+        <input type="text" placeholder="Usuario..." name="usuario">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+    <div class="search-container">
+      <form action="./resultadobusqueda.html">
+        <input type="text" placeholder="Tag..." name="tag">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+  </nav>
+  <h2 style="color: white" class="display-5 col-xs-1 text-center">Resultados de la busqueda</h2>
+</div>
+
+<div style="background-color: black" id="vid_10" class="row d-flex justify-content-center">
+</div>
+</body>
+</html>

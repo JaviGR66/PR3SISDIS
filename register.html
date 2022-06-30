@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Changa:wght@800&display=swap" rel="stylesheet">
+  <style>
+  h1{
+      font-family: sans-serif;
+      text-align: center;
+      font-size: 35px;
+  }
+    input[type=text],select{
+      width: 100%;
+      padding: 8px 12px;
+      margin: 8px 0;
+      display:inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type=submit]{
+      width: 100%;
+      background-color: #1b5b8f;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    input[type=submit]:hover{
+      background-color: #053c69;
+    }
+    input[type=password],select{
+      width: 100%;
+      padding: 8px 12px;
+      margin: 8px 0;
+      display:inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    div{
+      border-radius: 5px;
+      background-color:#f2f2f2;
+      padding:20px;
+    }
+    body{
+      background-color: #F26570;
+    }
+  </style>
+<h1 style="text-align: center;">Bienvenido a U-Tub</h1>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script>
+
+
+$(document).ready(function(){
+  $("button").click(function(){
+		var r1=document.getElementById("nombre").value;
+		var r2=document.getElementById("pApellido").value;
+    var r3=document.getElementById("sApellido").value;
+		var r4=document.getElementById("usuario").value;
+    var r5=document.getElementById("email").value;
+		var r6=document.getElementById("contrasenia").value;
+    var r7=document.getElementById("recuperacion").value;
+
+		var asd=$.get(
+                    //"http://54.91.156.253/lambda_gateway.php",
+		"http://egisaeg4i5yly3in37jjcxy4h40wzpqw.lambda-url.us-east-1.on.aws/",
+  		{Nombre:r1,Apellido1:r2,Apellido2:r3,Usuario:r4,Correo:r5,Contrasenia:r6,FraseRecuperacion:r7,op:"registro"},
+  		function(data) {
+			var json_data = data
+			alert("content:"+ JSON.stringify(json_data));
+				if(data.Registro=="true")
+				{
+			 	alert("Te has registrado bien");
+				window.location.href="Index.html";
+				}
+			else{
+				alert("Hay un error en los datos");
+			}
+
+
+			}
+			).done(function(){
+			alert("second success");
+			})
+			.fail(function(){
+			alert("error");
+			})
+			asd.always(function() {
+			alert("finsh");
+			});
+});
+});
+
+</script>
+
+</head>
+
+<body>
+  <div>
+    <label >Nombre:</label>
+    <input type="text" id="nombre" name="op1" placeholder="Nombre..."><br><br>
+    <label >Primer Apellido:</label>
+    <input type="text" id="pApellido" name="op2" placeholder="Primer Apellido"><br><br>
+    <label >Segundo Apellido:</label>
+    <input type="text" id="sApellido" name="op3" placeholder="Segundo Apellido"><br><br>
+    <label >Usuario:</label>
+    <input type="text" id="usuario" name="op4" placeholder="Usuario deseado"><br><br>
+    <label >Correo electronico:</label>
+    <input type="text" id="email" name="op5" placeholder="Correo..."><br><br>
+    <label >Contrasenia:</label>
+    <input type="password" id="contrasenia" name="op6" placeholder="Contrasenia"><br><br>
+    <label >Frase de Recuperacion:</label>
+    <input type="text" id="recuperacion" name="op7" placeholder="Coche amarillo..."><br><br>
+
+    <button style="text-align: center; ">Aceptar</button><br><br>
+
+</div>
+
+</body>
+</html>
