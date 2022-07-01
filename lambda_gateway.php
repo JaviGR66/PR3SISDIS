@@ -2,9 +2,10 @@
 
 <?php
 
-	$aws_access_key_id='ASIASHFGZT5CFWFEI7EP';
-	$aws_secret_access_key='WtUZewXxQSMQAqwFC1/3PLgcS+dGdqk8uZcfoQ5N';
-	$aws_session_token='FwoGZXIvYXdzELH//////////wEaDANStO6nfZZrmHuoRSK8AVBWuOp7MlSDQcVlWmuocY9WgDzt1FL48LA7IdO4s41jQ8P4eyJadVq6Ng8JDIzccTBfgncPVOJkoyXw/+cxv4lfILJeTfFdIEdXDgVvogfbIWi4NWEXP/EotsDLNEhMOHZk8fz2re8PvqGjv3E4N2OklH0/l7UnJZqzLkdMFw6+90iOEkUAERlHFvVO3gGxQLP4Zy5zHaoR1+lgiJk2iJVGxGbMkcQt/BywxsXqhLHZMjUrzonfamppB87YKM/8p5UGMi2P84mFMcDpkFEcnUXoz7R3GzelJPbzrEH3dx4cuwkM2WbtZDt5v9lmwUTLb0k=';
+	$aws_access_key_id="ASIASHFGZT5CCZH5DMRD"
+	$aws_secret_access_key="IDC22SWJd7UR8rwacEvyHK8RFYzcew3ZfbxModS8"
+	$aws_session_token="FwoGZXIvYXdzEC8aDL1PMDrWQf9XBR8sKiK8ATG3i6K9IPIgCh8v+S6XsFkfo5ozu1JXZZ/GVGC327M4jB5XxSE60ZCfNXLbTh/3uv4hWbhkr8IgSUkpSHv/yyDRqAl7MR7raYMz/MKGE2DVxC/Tbbku2KYWL3NgnNFeCTqPvcZUT6BbdhjezwYB0UhvrbN5lIt9qrrp/zx9L9YstVDoUC/KCn0Cduxud65S0PmY+MFPfi8BlA70gv+NUCal+9P38+HwqFm9Nojc4kVx/D5uV5JodeO6M5AmKNLu+5UGMi1wkTHRuwsRmVU8NfhXiL0ihpB8tspcQtVtLjbAAKBsFmEalqN/1JFc0j5zfRk="
+
 	$lambda_func='login';
 	$payload='{"queryStringParameters": {';
 
