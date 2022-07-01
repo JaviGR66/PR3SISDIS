@@ -35,7 +35,8 @@ $(document).ready(function(){
 		var cont=document.getElementById("Contrasenia").value;
 
 		if(contador!=4){
-		$.get(
+		$.get(		
+			 //"http://54.91.156.253/lambda_gateway.php",
 		    "http://egisaeg4i5yly3in37jjcxy4h40wzpqw.lambda-url.us-east-1.on.aws/",
 		    {Usuario : us, Contrasenia : cont, op:"login"},
 		    function(data) {
