@@ -5,7 +5,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Changa:wght@800&display=swap" rel="stylesheet">
 	<style>
 	body{
-		background-color: #F26570;
+		background-color: #3333f2;
 	}
 	h1{
 		  font-family: sans-serif;
@@ -21,7 +21,7 @@
 		text-align: center;
 	}
 	</style>
-	<h1 style="text-align: center;">Login a U-Tube</h1>
+	<h1 style="text-align: center;">Login a U-Tub</h1>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -41,7 +41,8 @@ $(document).ready(function(){
 		    {Usuario : us, Contrasenia : cont, op:"login"},
 		    function(data) {
 
-
+			var json_data = data
+			alert("content:"+ JSON.stringify(json_data));
 				if(data.accesoConcedido=="true"){
 					alert("Acceso conseguido");
 					sessionStorage.setItem('Usuario', us);
@@ -60,7 +61,7 @@ $(document).ready(function(){
 	}
 	else{
 		alert("Su cuenta ha sido invalidada");
-		//Implementar el post mañana
+		
 	}
   	});
 });
