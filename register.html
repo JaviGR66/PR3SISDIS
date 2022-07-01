@@ -69,7 +69,7 @@ $(document).ready(function(){
 		var asd=$.get(
                     //"http://54.91.156.253/lambda_gateway.php",
 		"http://egisaeg4i5yly3in37jjcxy4h40wzpqw.lambda-url.us-east-1.on.aws/",
-  		{Nombre:r1,Apellido1:r2,Apellido2:r3,Usuario:r4,Correo:r5,Contrasenia:r6,FraseRecuperacion:r7,op:"registro"},
+  		{Nombre:r1,Apellido1:r2,Apellido2:r3,Usuario:r4,Correo:r5,Contrasenia:r6,FraseRecuperacion:r7,op:"login"},
   		function(data) {
 			var json_data = data
 			alert("content:"+ JSON.stringify(json_data));
