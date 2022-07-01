@@ -5,7 +5,7 @@
 	$aws_access_key_id='ASIASHFGZT5CFWFEI7EP';
 	$aws_secret_access_key='WtUZewXxQSMQAqwFC1/3PLgcS+dGdqk8uZcfoQ5N';
 	$aws_session_token='FwoGZXIvYXdzELH//////////wEaDANStO6nfZZrmHuoRSK8AVBWuOp7MlSDQcVlWmuocY9WgDzt1FL48LA7IdO4s41jQ8P4eyJadVq6Ng8JDIzccTBfgncPVOJkoyXw/+cxv4lfILJeTfFdIEdXDgVvogfbIWi4NWEXP/EotsDLNEhMOHZk8fz2re8PvqGjv3E4N2OklH0/l7UnJZqzLkdMFw6+90iOEkUAERlHFvVO3gGxQLP4Zy5zHaoR1+lgiJk2iJVGxGbMkcQt/BywxsXqhLHZMjUrzonfamppB87YKM/8p5UGMi2P84mFMcDpkFEcnUXoz7R3GzelJPbzrEH3dx4cuwkM2WbtZDt5v9lmwUTLb0k=';
-	$lambda_func='calculadora';
+	$lambda_func='login';
 	$payload='{"queryStringParameters": {';
 
 	foreach ($_GET as $key => $value) {
